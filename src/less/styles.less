@@ -1052,3 +1052,197 @@ li {
         }
     }
 }
+
+.blog {
+    background-color: @light_gray;
+    padding: 140px 0 150px;
+
+    &-header {
+        
+        .col();
+        .size(6);
+
+        text-align: center;
+
+        &__title {
+            font-size: 50px;
+            font-family: 'Libre Baskerville';
+            font-weight: 700;
+            color: @black;
+        }
+
+        &__text {
+            font-size: 18px;
+            font-family: 'Poppins';
+            color: @light_black;
+            margin-top: 20px;
+        }
+    }
+
+    &-left {
+        .size(6);
+
+        background-color: @white;
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.05);
+        border-bottom: 3px solid @red;
+        padding-bottom: 40px;
+        margin-top: 75px;
+
+        &__imgSection {
+            position: relative;
+        }
+
+        &__img {
+            display: block;
+        }
+
+        &__signature {
+            position: absolute;
+            bottom: 35px;
+            left: 50px;
+            font-size: 15px;
+            font-family: 'Poppins';
+            font-weight: 500;
+            color: @red;
+            // line-height: 2.333;
+        }
+
+        &__date {
+            position: absolute;
+            bottom: 35px;
+            left: 212px;
+            font-size: 13px;
+            font-family: 'Poppins';
+            color: #d4d4d4;
+            // line-height: 2.692;
+        }
+
+        &__title {
+            font-size: 20px;
+            font-family: 'Poppins';
+            font-weight: 500;
+            color: #272727;
+            margin: 22px 55px 0 51px;
+            line-height: 1.75;
+        }
+
+        &__text {
+            font-size: 15px;
+            font-family: 'Poppins';
+            color: @light_black;
+            margin: 20px 55px 0 51px;
+            line-height: 1.8;
+        }
+
+        &__source {
+            text-decoration: none;
+            font-weight: 500;
+            color: #272727;
+        }
+    }
+
+    &-right {
+        .size(6);
+
+        margin-top: 75px;
+    }
+
+    &-route {
+        background-color: @white;
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.05);
+        padding: 29px 50px 28px 38px;
+
+        &__sectionTitle {
+            display: flex;
+            align-items: flex-end;
+        }
+
+        &__signature {
+            font-size: 15px;
+            font-family: 'Poppins';
+            font-weight: 500;
+        }
+
+        &__date {
+            font-size: 13px;
+            font-family: 'Poppins';
+            color: @light_black;
+            margin-left: 25px;
+        }
+
+        &__title {
+            font-size: 18px;
+            font-family: 'Poppins';
+            font-weight: 500;
+            color: #272727;
+            margin-top: 10px;
+        }
+
+        &__text {
+            font-size: 15px;
+            font-family: 'Poppins';
+            color: @light_black;
+            line-height: 1.8;
+            margin-top: 10px;
+        }
+
+        &__source {
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        &:nth-child(2),
+        &:nth-child(3) {
+            margin-top: 23px;
+        }
+    }
+}
+
+.subscription {
+    padding: 140px 150px;
+
+    &-section {
+        .col();
+        .size(6);
+
+        text-align: center;
+
+        &__title {
+            font-size: 30px;
+            font-family: 'Poppins';
+            color: #272727;
+        }
+
+        &__form {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        &__email {
+            font-size: 16px;
+            font-family: 'Poppins';
+            color: @light_black;
+            background-color: @light_gray;
+            border: 2px solid #efefef;
+            padding: 10.5px 0 10.5px 27px;
+            width: 300px;
+            border-top-left-radius: 25px;
+            border-bottom-left-radius: 25px;
+        }
+
+        &__btn {
+            font-size: 16px;
+            font-family: 'Poppins';
+            font-weight: 600;
+            text-transform: uppercase;
+            cursor: pointer;
+            color: @white;
+            background-color: @red;
+            border: none;
+            padding: 12.5px 26px;
+            border-top-right-radius: 25px;
+            border-bottom-right-radius: 25px;
+        }
+    }
+}
