@@ -956,7 +956,99 @@ li {
     }
 }
 
-.qwe {
-    background-color: @dark_gray;
-    padding: 150px 0;
+.choice {
+    padding: 140px 0 150px;
+
+    &-header {
+        
+        .col();
+        .size(6);
+
+        text-align: center;
+
+        &__title {
+            font-size: 50px;
+            font-family: 'Libre Baskerville';
+            font-weight: 700;
+            color: @black;
+        }
+
+        &__text {
+            font-size: 18px;
+            font-family: 'Poppins';
+            color: @light_black;
+            margin-top: 20px;
+        }
+    }
+
+    &-route {
+        .col();
+        .size(4);
+
+        &__header {
+            display: flex;
+            padding-right: 170px;
+        }
+
+        &__icon {
+            height: 49px;
+        }
+
+        &__title {
+            font-size: 18px;
+            font-family: 'Poppins';
+            font-weight: 500;
+            color: #272727;
+            margin-top: -5px;
+            margin-left: 13px;
+            line-height: 1.444;
+        }
+
+        &__text {
+            font-size: 15px;
+            font-family: 'Poppins';
+            color: @light_black;
+            line-height: 1.8;
+            margin-top: 30px;
+            padding-right: 20px;
+        }
+
+        &:nth-child(1),
+        &:nth-child(2),
+        &:nth-child(3) {
+            margin-top: 75px;
+        }
+
+        &:nth-child(4),
+        &:nth-child(5),
+        &:nth-child(6) {
+            margin-top: 65px;
+        }
+    }
+
+    &-action {
+        display: flex;
+        align-items: center;
+        margin-top: 150px;
+
+        &__text {
+            font-size: 25px;
+            font-family: 'Poppins';
+            color: #272727;
+        }
+
+        &__btn {
+            font-size: 16px;
+            font-family: 'Poppins';
+            font-weight: 600;
+            text-transform: uppercase;
+            cursor: pointer;
+            color: @white;
+            background-color: @red;
+            border: none;
+            padding: 12.5px 39px;
+            border-radius: 25px;
+            margin-left: 24px;
+        }
+    }
 }
