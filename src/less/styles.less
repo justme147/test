@@ -20,6 +20,10 @@ li {
     padding: 0;
 }
 
+input, textarea, button {
+    outline: none;
+}
+
 .container {
     .wrapper();
 }
@@ -84,17 +88,51 @@ li {
 
             padding-top: 12px;
             margin-left: 22px;
+            position: relative;
+            overflow: hidden;
+
 
             a {
                 font-size: 14px;
                 color: @white;
                 font-family: 'Poppins';
-                font-weight: medium;
+                font-weight: 500;
                 text-decoration: none;
+                
+
+                &::before {
+                    content: '';
+                    width: 100%;
+                    height: 2px;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    background-color: @white;
+                    transform: translateX(-101%);
+                    transition: all ease-in-out .5s;
+                }
+
+                &:hover {
+                    &::before {
+                        transform: translateX(0);
+                    }
+                }
             }
 
             &:first-child {
                 margin-left: 0;
+            }
+
+            &:hover {
+                .nav-menu__item a::before {
+                    transform: translateX(0);
+                }
+            }
+        }
+
+        .active {
+            a::before {
+                transform: translateX(0);
             }
         }
     }
@@ -108,6 +146,10 @@ li {
     .nav-logo,
     .nav-menu__item a {
         color: @dark_gray;
+
+        &::before {
+            background-color: @dark_gray;
+        }
     }
 }
 
@@ -115,6 +157,28 @@ li {
     background-color: @dark_gray;
     padding: 35px 0 170px;
     
+    &-button {
+        width: 40px;
+        height: 40px;
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background-color: @dark_gray;
+        border: 1px solid @white;
+        border-radius: 20px;
+        cursor: pointer;
+        text-align: center;
+        line-height: 40px;
+        font-size: 23px;
+        color: @white;
+        transform: rotate(90deg);
+        display: none;
+    }
+
+    .visible {
+        display: block;
+    }
+
     &-logo {
         .col();
         .size(2);
@@ -181,6 +245,13 @@ li {
             padding: 12px 42px;
             margin-top: 45px;
             cursor: pointer;
+            transition: all ease-in-out .4s;
+
+            &:hover {
+                color: @red;
+                background-color: @white;
+                transform: scale(1.05);
+            }
         }
     }
 
@@ -345,6 +416,10 @@ li {
             &__icon {
                 margin-top: 25px;
                 cursor: pointer;
+
+                &:hover {
+                    transform: scale(1.05);
+                }
             }
 
             &__text {
@@ -405,6 +480,10 @@ li {
                 cursor: pointer;
                 transition: opacity ease-in-out 0.4s;
                 text-align: center;
+
+                &:hover {
+                    transform: scale(1.1);
+                }
             }
 
             &__hover {
@@ -524,18 +603,12 @@ li {
 
         .triangle {
             .col();
-            // .size(1);
 
-            // width: 60px;
             border: 30px solid transparent;
             border-bottom: 45px solid @white;
-            // height: 40px;
-            // background-color: @white;
-            // margin-top: 10px;
-            // box-shadow: 0px -10px 10px 0px rgba(0, 0, 0, 0.05);
-            z-index: 100;
             margin-left: calc(12.5% - 30px);
             margin-top: -25px;
+            z-index: 100;
         }
 
         &-details {
@@ -603,6 +676,10 @@ li {
                     color: @light_black;
                     text-decoration: none;
                     vertical-align: middle;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
                 }
 
                 &:first-child {
@@ -1049,6 +1126,10 @@ li {
             padding: 12.5px 39px;
             border-radius: 25px;
             margin-left: 24px;
+
+            &:hover {
+                transform: scale(1.05);
+            }
         }
     }
 }
@@ -1104,7 +1185,6 @@ li {
             font-family: 'Poppins';
             font-weight: 500;
             color: @red;
-            // line-height: 2.333;
         }
 
         &__date {
@@ -1138,6 +1218,10 @@ li {
             text-decoration: none;
             font-weight: 500;
             color: #272727;
+
+            &:hover {
+                text-decoration: underline;
+            }
         }
     }
 
@@ -1189,6 +1273,10 @@ li {
         &__source {
             text-decoration: none;
             font-weight: 500;
+
+            &:hover {
+                text-decoration: underline;
+            }
         }
 
         &:nth-child(2),
@@ -1243,6 +1331,11 @@ li {
             padding: 12.5px 26px;
             border-top-right-radius: 25px;
             border-bottom-right-radius: 25px;
+            transition: all ease-in-out .2s;
+
+            &:hover {
+                transform: scale(1.05);
+            }
         }
     }
 }
@@ -1301,6 +1394,11 @@ li {
             padding: 12.5px 30px;
             border-radius: 4px;
             width: calc(50% - 15px);
+            transition: all ease-in-out .4s;
+
+            &:focus {
+                transform: scale(1.1);
+            }
         }
 
         &__textarea {
@@ -1315,6 +1413,11 @@ li {
             width: calc(100% - 50px);
             height: calc(200px - 30px);
             margin-top: 25px;
+            transition: all ease-in-out .4s;
+
+            &:focus {
+                transform: scale(1.05);
+            }
         }
 
         &__btn {
@@ -1328,6 +1431,11 @@ li {
             border-radius: 25px;
             padding: 12.5px 36px;
             margin-top: 50px;
+            cursor: pointer;
+
+            &:hover {
+                transform: scale(1.05);
+            }
         }
     }
 }
@@ -1341,6 +1449,27 @@ li {
         display: flex;
         width: 100%;
         align-items: center;
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(to right, @red 50%, @green 50%);
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(to right, @purple 50%, @orange 50%);
+        }
     }
 
     &-route {
@@ -1380,11 +1509,16 @@ li {
 
             a {
                 margin-left: 15px;
+                text-decoration: none;
 
                 &:first-child {
                     margin-left: 0;
                 }
             }
+        }
+
+        &__icon:hover {
+            transform: scale(1.1);
         }
 
         &:first-child {
