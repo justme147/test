@@ -15,36 +15,38 @@ $(document).ready(function (){
             $(".header-button").removeClass("visible");
         }
 
-        let scrollWindow = $(window).scrollTop();
+        let scrollValue = $(window).scrollTop();
+
+        // console.log('scroll window', scrollWindow);
 
         $(".nav-menu__item").removeClass("active");
 
         switch(true) {
-            case scrollWindow >= 700 && scrollWindow < 1650:
+            case scrollValue >= $(".about").offset().top && scrollValue < ($(".about").offset().top + $(".about").height()):
                 $(".nav-menu__item:eq(0)").addClass("active");
                 break;
-            case scrollWindow >= 1650 && scrollWindow < 2600:
+            case scrollValue >= $(".services").offset().top && scrollValue < ($(".services").offset().top + $(".services").height()):
                 $(".nav-menu__item:eq(1)").addClass("active");
                 break;
-            case scrollWindow >= 3000 && scrollWindow < 4350:
+            case scrollValue >= $(".portfolio").offset().top && scrollValue < ($(".portfolio").offset().top + $(".portfolio").height()):
                 $(".nav-menu__item:eq(2)").addClass("active");
                 break;
-            case scrollWindow >= 4350 && scrollWindow < 5550:
+            case scrollValue >= $(".team").offset().top && scrollValue < ($(".team").offset().top + $(".team").height()):
                 $(".nav-menu__item:eq(3)").addClass("active");
                 break;
-            case scrollWindow >= 6050 && scrollWindow < 7750:
+            case scrollValue >= $(".work").offset().top && scrollValue < ($(".work").offset().top + $(".work").height()):
                 $(".nav-menu__item:eq(4)").addClass("active");
                 break;
-            case scrollWindow >= 7750 && scrollWindow < 8800:
+            case scrollValue >= $(".price").offset().top && scrollValue < ($(".price").offset().top + $(".price").height()):
                 $(".nav-menu__item:eq(5)").addClass("active");
                 break;
-            case scrollWindow >= 8800 && scrollWindow < 9700:
+            case scrollValue >= $(".testimonials").offset().top && scrollValue < ($(".testimonials").offset().top + $(".testimonials").height()):
                 $(".nav-menu__item:eq(6)").addClass("active");
                 break;
-            case scrollWindow >= 10750 && scrollWindow < 11900:
+            case scrollValue >= $(".blog").offset().top && scrollValue < ($(".blog").offset().top + $(".blog").height()):
                 $(".nav-menu__item:eq(7)").addClass("active");
                 break;
-            case scrollWindow >= 12200 && scrollWindow < 12950:
+            case scrollValue >= $(".contact").offset().top && scrollValue < ($(".contact").offset().top + $(".contact").height()):
                 $(".nav-menu__item:eq(8)").addClass("active");
                 break;
         }
@@ -62,69 +64,22 @@ $(document).ready(function (){
         $(".nav-menu__item").removeClass("active");
 
         if(!$(this).hasClass("active")) {
-            $(this).toggleClass("active");
+            $(this).addClass("active");
         }
 
-        switch($(this).children().text()) {
-            case 'About Us':
-                $('body,html').animate({
-                    scrollTop: 800
-                }, 800);
-                break;
+        let id = $(this).find('a').attr('href');
+        
+        console.log($(this).find('a').attr('href'), $(id).offset());
 
-            case 'Our Focus':
-                $('body,html').animate({
-                    scrollTop: 1800
-                }, 800);
-                break;
-
-            case 'Portfolio':
-                $('body,html').animate({
-                    scrollTop: 3100
-                }, 800);
-                break;
-
-            case 'Our Team':
-                $('body,html').animate({
-                    scrollTop: 4500
-                }, 800);
-                break;
-
-            case 'Work Steps':
-                $('body,html').animate({
-                    scrollTop: 6200
-                }, 800);
-                break;
-
-            case 'Pricing':
-                $('body,html').animate({
-                    scrollTop: 7900
-                }, 800);
-                break;
-
-            case 'Testimonials':
-                $('body,html').animate({
-                    scrollTop: 8900
-                }, 800);
-                break;
-
-            case 'Blog':
-                $('body,html').animate({
-                    scrollTop: 10900
-                }, 800);
-                break;
-
-            case 'Contact':
-                $('body,html').animate({
-                    scrollTop: 12400
-                }, 800);
-                break;
-        }
+        $('html').animate({
+            scrollTop: $(id).offset().top
+        }, 800)
     });
 
     $(".heading__btn").click(function() {
-        $('body,html').animate({
-            scrollTop: 3100
+
+        $('html').animate({
+            scrollTop: $('.work').offset().top
         }, 800);
     });
 
