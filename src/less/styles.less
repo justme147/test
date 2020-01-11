@@ -56,6 +56,10 @@ input, textarea, button {
     justify-content: flex-end;
 }
 
+.justify-content-around {
+    justify-content: space-around;
+}
+
 .nav {
     background-color: @dark_gray;
     padding: 10px 0 25px;
@@ -63,9 +67,22 @@ input, textarea, button {
     width: 100%;
     z-index: 9999;
 
+    .md(padding, 10px 0 10px);    
+
+    nav {
+        .md(justify-content, center);
+
+        .sm(justify-content, space-between);
+        .sm(align-items, center);
+    }
+
     &-logo {
         .col();
         .size(2);
+        .size-sm(3);
+        .size-xs(6);
+
+        .md(margin-bottom, 5px);
 
         font-family: 'Wisdom';
         font-size: 35px;
@@ -80,6 +97,12 @@ input, textarea, button {
     &-menu {
         .col();
         .size(8);
+        .size-lg(10);
+        .size-md(12);
+
+        .md(justify-content, center);
+
+        .sm(display, none);
 
         display: flex;
         justify-content: flex-end;
@@ -137,6 +160,24 @@ input, textarea, button {
         }
     }
 
+    &-burger {
+        .col();
+        .size(1);
+
+        width: 24px;
+        cursor: pointer;
+        margin-top: 10px;
+
+        display: none;
+        .sm(display, block);
+
+        span {
+            background: @white;
+            display: block;
+            height: 2px;
+            margin-bottom: 5px;
+        }
+    }
 }
 
 .scrolled {
@@ -151,13 +192,23 @@ input, textarea, button {
             background-color: @dark_gray;
         }
     }
+
+    .nav-burger span{
+        background: @dark_gray;
+    }
 }
 
 .header {
     background-color: @dark_gray;
     padding: 35px 0 170px;
+
+    .sm(padding, 35px 0 120px);
+    .xs(padding, 35px 0 80px);
     
     &-button {
+        .sm(right, 10px);
+        .sm(bottom, 10px);
+
         width: 40px;
         height: 40px;
         position: fixed;
@@ -173,60 +224,31 @@ input, textarea, button {
         color: @white;
         transform: rotate(90deg);
         display: none;
+        z-index: 9999;
     }
 
     .visible {
         display: block;
-    }
-
-    &-logo {
-        .col();
-        .size(2);
-
-        font-family: 'Wisdom';
-        font-size: 35px;
-        text-decoration: none;
-        color: @white;
-
-        font {
-            color: @red;
-        }
-    }
-
-    &-menu {
-        .col();
-        .size(8);
-
-        display: flex;
-        justify-content: flex-end;
-
-        &__item {
-
-            padding-top: 12px;
-            margin-left: 22px;
-
-            a {
-                font-size: 14px;
-                color: @white;
-                font-family: 'Poppins';
-                font-weight: medium;
-                text-decoration: none;
-            }
-
-            &:first-child {
-                margin-left: 0;
-            }
-        }
+        .xs(display, none);
     }
 
     .heading {
         .col();
         .size(9);
+        .size-lg(11);
+        .size-md(12);
+
+        .sm(margin-top, 120px);
 
         text-align: center;
         margin-top: 170px;
 
         &__title {
+            .lg(font-size, 55px);
+            .md(font-size, 50px);
+            .sm(font-size, 45px);
+            .xs(font-size, 33px);
+
             font-size: 60px;
             font-family: 'Libre Baskerville';
             color: @white;
@@ -234,6 +256,10 @@ input, textarea, button {
         }
 
         &__btn {
+            .md(font-size, 15px);
+            .sm(font-weight, 500);
+            .xs(font-size, 14px);
+
             font-size: 16px;
             font-family: 'Poppins';
             font-weight: 600;
@@ -255,15 +281,22 @@ input, textarea, button {
         }
     }
 
-.features-route {
+    .features-route {
 
         .col();
         .size(3);
+        .size-lg(4);
+        .size-sm(6);
+
+        .xs(margin-top, 50px);
 
         text-align: center;
         margin-top: 83px;
 
         &__text {
+            .md(font-size, 17px);
+            .xs(font-size, 15px);
+
             font-family: 'Poppins';
             font-weight: 500;
             font-size: 18px;
@@ -276,15 +309,22 @@ input, textarea, button {
 .about {
 
     padding: 150px 0;
+    
+    .md(padding, 0);
 
     &-section {
 
         position: relative;
         width: 100%;
 
+        .md(position, static);
+        // .md(text-align, center);
+
         &__left {
             .col();
             .size(6);
+
+            .md(display, none);
         }
 
         &__img {
@@ -294,6 +334,13 @@ input, textarea, button {
         &__right {
             .col();
             .size(7);
+            .size-md(12);
+
+            .lg(top, 0);
+            .lg(padding, 70px 65px 80px);
+            .md(position, static);
+            .md(box-shadow, none);
+            .xs(padding, 50px 0 60px);
 
             position: absolute;
             top: 75px;
@@ -303,6 +350,8 @@ input, textarea, button {
             box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.05);
         
             &:before {
+                .md(display, none);
+
                 content: '';
                 left: 0;
                 bottom: 0;
@@ -313,6 +362,8 @@ input, textarea, button {
             }
             
             &:after {
+                .md(display, none);
+
                 content: '';
                 right: 0;
                 bottom: 0;
@@ -324,6 +375,9 @@ input, textarea, button {
         }
 
         &__title {
+            .xs(font-size, 35px);
+            .xs(text-align, center);
+
             font-size: 50px;
             font-family: 'Libre Baskerville';
             font-weight: bold;
@@ -331,6 +385,8 @@ input, textarea, button {
         }
 
         &__text {
+            .xs(font-size, 13px);
+
             font-size: 15px;
             font-family: 'Poppins';
             color: @light_black;
@@ -344,13 +400,24 @@ input, textarea, button {
     background-color: @light_gray;
     padding: 135px 0 150px;
 
+    .md(padding, 85px 0 100px);
+    .sm(padding, 65px 0 80px);
+    .xs(padding, 55px 0 70px);
+
         &-heading {
             .col();
             .size(6);
+            .size-lg(8);
+            .size-md(10);
+            .size-sm(12);
 
             text-align: center;
 
             &__title {
+                .md(font-size, 45px);
+                .sm(font-size, 40px);
+                .xs(font-size, 35px);
+
                 font-size: 50px;
                 font-family: 'Libre Baskerville';
                 font-weight: 700;
@@ -358,7 +425,9 @@ input, textarea, button {
             }
 
             &__text {
-                font-size: 15px;
+                .xs(font-size, 15px);
+
+                font-size: 18px;
                 font-family: 'Poppins';
                 color: @light_black;
                 margin-top: 20px;   
@@ -368,6 +437,12 @@ input, textarea, button {
         &-route {
             .col();
             .size(3);
+            .size-md(5);
+            .size-sm(6);
+            .size-xs(10);
+
+            .lg(padding, 55px 18px);
+            .md(margin-top, 40px);
 
             text-align: center;
             background-color: @white;
@@ -380,6 +455,8 @@ input, textarea, button {
             }
 
             &__title {
+                .lg(font-size, 19px);
+
                 font-size: 20px;
                 font-family: 'Poppins';
                 font-weight: 500;
@@ -388,6 +465,8 @@ input, textarea, button {
             }
 
             &__text {
+                .lg(font-size, 14px);
+
                 font-size: 15px;
                 font-family: 'Poppins';
                 color: @light_black;
@@ -401,13 +480,21 @@ input, textarea, button {
     background-color: @dark_gray;
     padding: 140px 0; 
 
+    .xs(padding, 90px 0);
+
         &-section {
             .col();
             .size(5);
+            .size-lg(7);
+            .size-md(9);
+            .size-sm(10);
+            .size-xs(12);
 
             text-align: center;
 
             &__title {
+                .xs(font-size, 23px);
+
                 font-size: 30px;
                 font-family: 'Poppins';
                 color: @white;
@@ -418,11 +505,15 @@ input, textarea, button {
                 cursor: pointer;
 
                 &:hover {
+                    .xs(transform, none);
+
                     transform: scale(1.05);
                 }
             }
 
             &__text {
+                .xs(font-size, 13px);
+
                 font-size: 15px;
                 font-family: 'Poppins';
                 color: @white;
@@ -433,14 +524,25 @@ input, textarea, button {
 
 .portfolio {
     padding: 130px 0 150px;
+    
+    .md(padding, 80px 0 100px);
+    .sm(padding, 60px 0 80px);
+    .xs(padding, 50px 0 70px);
 
         &-heading {
             .col();
             .size(6);
+            .size-lg(8);
+            .size-md(10);
+            .size-sm(12);
 
             text-align: center;
 
             &__title {
+                .md(font-size, 45px);
+                .sm(font-size, 40px);
+                .xs(font-size, 35px);
+
                 font-size: 50px;
                 font-family: 'Libre Baskerville';
                 font-weight: 700;
@@ -448,6 +550,8 @@ input, textarea, button {
             }
 
             &__text {
+                .xs(font-size, 15px);
+
                 font-size: 18px;
                 font-family: 'Poppins';
                 color: @light_black;
@@ -458,6 +562,9 @@ input, textarea, button {
         &-route {
             .col();
             .size(4);
+            .size-md(5);
+            .size-sm(6);
+            .size-xs(12);
 
             margin-top: 23px;
             position: relative;
@@ -532,6 +639,19 @@ input, textarea, button {
                 margin-top: 75px;
             }
 
+            &:nth-child(1),
+            &:nth-child(2) {
+                .sm(margin-top, 45px);
+            }
+
+            &:nth-child(2) {
+                .xs(margin-top, 23px);
+            }
+
+            &:nth-child(3) {
+                .md(margin-top, 23px);
+            }
+
             &:hover {
                 box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
                 padding: 5px 5px 0 5px;
@@ -552,13 +672,24 @@ input, textarea, button {
     padding: 130px 0 150px;
     background-color: @light_gray;
 
+    .md(padding, 80px 0 100px);
+    .sm(padding, 60px 0 80px);
+    .xs(padding, 50px 0 70px);
+
         &-heading {
             .col();
             .size(6);
+            .size-lg(8);
+            .size-md(10);
+            .size-sm(12);
 
             text-align: center;
 
             &__title {
+                .md(font-size, 45px);
+                .sm(font-size, 40px);
+                .xs(font-size, 35px);
+
                 font-size: 50px;
                 font-family: 'Libre Baskerville';
                 font-weight: 700;
@@ -566,6 +697,8 @@ input, textarea, button {
             }
 
             &__text {
+                .xs(font-size, 15px);
+
                 font-size: 18px;
                 font-family: 'Poppins';
                 color: @light_black;
@@ -576,12 +709,20 @@ input, textarea, button {
         &-route {
             .col();
             .size(3);
+            .size-md(5);
+            .size-sm(6);
+            .size-xs(10);
+
+            .md(margin-top, 45px);
+            .sm(margin-top, 35px);
 
             background-color: @white;
             text-align: center;
             margin-top: 75px;
 
             &__img {
+                .md(width, 100%);
+
                 display: block;
             }
 
@@ -604,6 +745,8 @@ input, textarea, button {
         .triangle {
             .col();
 
+            .md(display, none);
+
             border: 30px solid transparent;
             border-bottom: 45px solid @white;
             margin-left: calc(12.5% - 30px);
@@ -614,6 +757,8 @@ input, textarea, button {
         &-details {
             .col();
             .size(12);
+            
+            .md(display, none);
             
             background-color: @white;
             box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.05);
@@ -693,17 +838,27 @@ input, textarea, button {
     background: url('../img/stats_bcg.png') no-repeat top;
     padding: 135px 0 125px;
 
+    .md(padding, 85px 0 75px);
+    .sm(padding, 75px 0 65px);
+    .sm(background-size, cover);
+    .xs(padding, 65px 0 55px);
+
     &-route {
         .col();
         .size(3);
+        .size-sm(5);
 
         text-align: center;
 
         &__icon {
+            .xs(height, 35px);
+
             height: 48px;
         }
 
         &__title {
+            .xs(font-size, 17px);
+
             font-size: 20px;
             font-family: 'Poppins';
             font-weight: 500;
@@ -712,6 +867,8 @@ input, textarea, button {
         }
 
         &__text {
+            .xs(font-size, 14px);
+
             font-size: 15px;
             font-family: 'Poppins';
             color: #bebec0;
@@ -719,6 +876,9 @@ input, textarea, button {
         }
 
         &__circle {
+            .sm(margin-top, 30px);
+            .xs(margin-top, 15px);
+
             display: block;
             width: 15px;
             height: 15px;
@@ -735,20 +895,36 @@ input, textarea, button {
             margin: calc(50% - 3.5px);
 
         }
+
+        &:nth-child(3),
+        &:nth-child(4) {
+            .sm(margin-top, 40px);
+        }
     }
 }
 
 .work {
     padding: 140px 0 150px;
 
+    .md(padding, 80px 0 100px);
+    .sm(padding, 60px 0 80px);
+    .xs(padding, 50px 0 70px);
+
     &-header {
         
         .col();
         .size(6);
+        .size-lg(8);
+        .size-md(10);
+        .size-sm(12);
 
         text-align: center;
 
         &__title {
+            .md(font-size, 45px);
+            .sm(font-size, 40px);
+            .xs(font-size, 35px);
+
             font-size: 50px;
             font-family: 'Libre Baskerville';
             font-weight: 700;
@@ -756,6 +932,8 @@ input, textarea, button {
         }
 
         &__text {
+            .xs(font-size, 15px);
+
             font-size: 18px;
             font-family: 'Poppins';
             color: @light_black;
@@ -768,9 +946,16 @@ input, textarea, button {
         position: relative;;
         width: 100%;
 
+        .size-md(6);
+        .size-xs(12);
+
+        .md(position, static);
+
         &__center {
             .col();
             .size(6);
+
+            .md(display, none);
 
             margin: 0 auto;
         }
@@ -782,17 +967,44 @@ input, textarea, button {
         &__left {
             .col();
             .size(5);
+            .size-md(12);
+
+            .lg(padding, 55px 40px 35px 70px);
+            
+            .md(position, static);
+            .md(padding, 55px 0 35px 70px);
+            .md(box-shadow, none);
+            .md(text-align, right);
+
+            .sm(padding, 55px 0);
+            .sm(text-align, center);
+
+            .xs(text-align, left);
 
             position: absolute;
             top: -51px;
             background-color: @white;
             box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.05);
             padding: 65px 50px 45px 125px;
+            z-index: 10;
         }
 
         &__right {
             .col();
             .size(5);
+            .size-md(12);
+
+            .lg(padding, 55px 40px 35px 70px);
+
+            .md(position, static);
+            .md(padding, 55px 70px 35px 0);
+            .md(box-shadow, none);
+            .md(text-align, left);
+
+            .sm(padding, 55px 0);
+            .sm(text-align, center);
+
+            .xs(text-align, right);
 
             position: absolute;
             top: -51px;
@@ -800,9 +1012,12 @@ input, textarea, button {
             background-color: @white;
             box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.05);
             padding: 65px 50px 45px 125px;
+            z-index: 10;
         }
 
         &__title {
+            .lg(font-size, 23px);
+
             font-size: 25px;
             font-family: 'Poppins';
             color: #272727;
@@ -816,6 +1031,7 @@ input, textarea, button {
         }
 
         &:first-child {
+            .md(margin-top, 0);
             margin-top: 125px;
         }
     }
@@ -823,16 +1039,27 @@ input, textarea, button {
 
 .price {
     background: @light_gray;
-    padding: 145px 0 150px; 
+    padding: 145px 0 150px;
+
+    .md(padding, 80px 0 100px);
+    .sm(padding, 60px 0 80px);
+    .xs(padding, 50px 0 70px);
 
     &-header {
         
         .col();
         .size(6);
+        .size-lg(8);
+        .size-md(10);
+        .size-sm(12);
 
         text-align: center;
 
         &__title {
+            .md(font-size, 45px);
+            .sm(font-size, 40px);
+            .xs(font-size, 35px);
+
             font-size: 50px;
             font-family: 'Libre Baskerville';
             font-weight: 700;
@@ -840,6 +1067,8 @@ input, textarea, button {
         }
 
         &__text {
+            .xs(font-size, 15px);
+
             font-size: 18px;
             font-family: 'Poppins';
             color: @light_black;
@@ -851,6 +1080,10 @@ input, textarea, button {
 
         .col();
         .size(4);
+        .size-md(6);
+        .size-xs(11);
+
+        .md(margin-top, 43px);
 
         text-align: center;
         background-color: @white;
@@ -897,6 +1130,8 @@ input, textarea, button {
         }
 
         &__text {
+            .xs(font-size, 14px);
+
             font-size: 15px;
             font-family: 'Poppins';
             color: @light_black;
@@ -913,6 +1148,8 @@ input, textarea, button {
         }
 
         &__btn {
+            .xs(font-size, 15px);
+
             font-size: 16px;
             font-family: 'Poppins';
             font-weight: 600;
@@ -951,14 +1188,25 @@ input, textarea, button {
     background-color: @dark_gray;
     padding: 140px 0 150px;
 
+    .md(padding, 80px 0 100px);
+    .sm(padding, 60px 0 80px);
+    .xs(padding, 50px 0 70px);
+
     &-header {
 
         .col();
         .size(6);
+        .size-lg(8);
+        .size-md(10);
+        .size-sm(12);
 
         text-align: center;
 
         &__title {
+            .md(font-size, 45px);
+            .sm(font-size, 40px);
+            .xs(font-size, 35px);
+
             font-size: 50px;
             font-family: 'Libre Baskerville';
             font-weight: 700;
@@ -966,6 +1214,8 @@ input, textarea, button {
         }
 
         &__text {
+            .xs(font-size, 15px);
+
             font-size: 18px;
             font-family: 'Poppins';
             color: @white;
@@ -974,6 +1224,8 @@ input, textarea, button {
     }
 
     &-feedback {
+        .sm(position, static);
+        .sm(margin-top, 45px);
 
         display: flex;
         width: 100%;
@@ -984,6 +1236,8 @@ input, textarea, button {
         &__image {
             .col();
             .size(5);
+
+            .sm(display, none);
 
             z-index: 999;
             position: relative;
@@ -996,6 +1250,15 @@ input, textarea, button {
         &__details {
             .col();
             .size(9);
+            .size-md(8);
+            .size-sm(12);
+
+            .md(padding, 30px 50px 35px 80px);
+
+            .sm(position, static);
+            .sm(padding, 30px 50px 35px 50px);
+
+            .xs(padding, 30px 25px 35px);
 
             position: absolute;
             right: 0;
@@ -1036,14 +1299,25 @@ input, textarea, button {
 .choice {
     padding: 140px 0 150px;
 
+    .md(padding, 80px 0 100px);
+    .sm(padding, 60px 0 80px);
+    .xs(padding, 50px 0 70px);
+
     &-header {
         
         .col();
         .size(6);
+        .size-lg(8);
+        .size-md(10);
+        .size-sm(12);
 
         text-align: center;
 
         &__title {
+            .md(font-size, 45px);
+            .sm(font-size, 40px);
+            .xs(font-size, 35px);
+
             font-size: 50px;
             font-family: 'Libre Baskerville';
             font-weight: 700;
@@ -1051,6 +1325,8 @@ input, textarea, button {
         }
 
         &__text {
+            .xs(font-size, 15px);
+
             font-size: 18px;
             font-family: 'Poppins';
             color: @light_black;
@@ -1061,8 +1337,15 @@ input, textarea, button {
     &-route {
         .col();
         .size(4);
+        .size-sm(6);
+        .size-xs(11);
+
+        // .xs(text-align, center);
 
         &__header {
+            .md(padding-right, 45px);
+            .sm(padding-right, 60px);
+
             display: flex;
             padding-right: 170px;
         }
@@ -1101,20 +1384,48 @@ input, textarea, button {
         &:nth-child(6) {
             margin-top: 65px;
         }
+
+        &:nth-child(1),
+        &:nth-child(2) {
+            .sm(margin-top, 45px);
+            .xs(margin-top, 40px);
+        }
+
+        &:nth-child(3),
+        &:nth-child(4),
+        &:nth-child(5),
+        &:nth-child(6) {
+            .sm(margin-top, 40px);
+        }
     }
 
     &-action {
+        .md(margin-top, 100px);
+
+        .sm(flex-wrap, wrap);
+        .sm(justify-content, center);
+
         display: flex;
         align-items: center;
         margin-top: 150px;
 
         &__text {
+            .sm(width, 100%);
+            .sm(text-align, center);
+
+            .xs(font-size, 20px);
+
             font-size: 25px;
             font-family: 'Poppins';
             color: #272727;
         }
 
         &__btn {
+            .sm(margin-top, 20px);
+            .sm(margin-left, 0);
+            .xs(font-weight, 500);
+            .xs(padding, 10.5px 35px);
+
             font-size: 16px;
             font-family: 'Poppins';
             font-weight: 600;
@@ -1128,6 +1439,8 @@ input, textarea, button {
             margin-left: 24px;
 
             &:hover {
+                .xs(transform, none);
+
                 transform: scale(1.05);
             }
         }
@@ -1138,14 +1451,25 @@ input, textarea, button {
     background-color: @light_gray;
     padding: 140px 0 150px;
 
+    .md(padding, 80px 0 100px);
+    .sm(padding, 60px 0 80px);
+    .xs(padding, 50px 0 70px);
+
     &-header {
         
         .col();
         .size(6);
+        .size-lg(8);
+        .size-md(10);
+        .size-sm(12);
 
         text-align: center;
 
         &__title {
+            .md(font-size, 45px);
+            .sm(font-size, 40px);
+            .xs(font-size, 35px);
+
             font-size: 50px;
             font-family: 'Libre Baskerville';
             font-weight: 700;
@@ -1153,6 +1477,8 @@ input, textarea, button {
         }
 
         &__text {
+            .xs(font-size, 15px);
+
             font-size: 18px;
             font-family: 'Poppins';
             color: @light_black;
@@ -1160,9 +1486,17 @@ input, textarea, button {
         }
     }
 
+    .item-start {
+        .md(align-items, flex-start);
+    }
+
     &-left {
+        .col();
         .size(6);
 
+        .md(margin-top, 50px);
+        .sm(display, none);
+        
         background-color: @white;
         box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.05);
         border-bottom: 3px solid @red;
@@ -1178,6 +1512,8 @@ input, textarea, button {
         }
 
         &__signature {
+            .md(left, 28px);
+
             position: absolute;
             bottom: 35px;
             left: 50px;
@@ -1198,6 +1534,8 @@ input, textarea, button {
         }
 
         &__title {
+            .md(margin, 19px 40px 0 28px);
+
             font-size: 20px;
             font-family: 'Poppins';
             font-weight: 500;
@@ -1207,6 +1545,8 @@ input, textarea, button {
         }
 
         &__text {
+            .md(margin, 29px 40px 0 28px);
+
             font-size: 15px;
             font-family: 'Poppins';
             color: @light_black;
@@ -1225,13 +1565,33 @@ input, textarea, button {
         }
     }
 
-    &-right {
+    &-leftSm {
+        .col();
         .size(6);
+        .size-xs(12);
+
+        .sm(margin-top, 50px);
+        .sm(display, block);
+        .xs(margin-top, 40px);
+
+        display: none;
+    }
+
+    &-right {
+        .col();
+        .size(6);
+        .size-xs(12);
+
+        .md(margin-top, 50px);
+        .xs(margin-top, 23px);
 
         margin-top: 75px;
     }
 
     &-route {
+        .md(padding, 19px 40px 18px 28px);
+        .sm(padding, 19px 15px 18px 15px);
+
         background-color: @white;
         box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.05);
         padding: 29px 50px 28px 38px;
@@ -1242,12 +1602,16 @@ input, textarea, button {
         }
 
         &__signature {
+            .sm(font-size, 13px);
+
             font-size: 15px;
             font-family: 'Poppins';
             font-weight: 500;
         }
 
         &__date {
+            .sm(font-size, 12px);
+
             font-size: 13px;
             font-family: 'Poppins';
             color: @light_black;
@@ -1255,6 +1619,8 @@ input, textarea, button {
         }
 
         &__title {
+            .sm(font-size, 16px);
+
             font-size: 18px;
             font-family: 'Poppins';
             font-weight: 500;
@@ -1263,6 +1629,8 @@ input, textarea, button {
         }
 
         &__text {
+            .sm(font-size, 13px);
+
             font-size: 15px;
             font-family: 'Poppins';
             color: @light_black;
@@ -1283,31 +1651,56 @@ input, textarea, button {
         &:nth-child(3) {
             margin-top: 23px;
         }
+
+        &:nth-child(3) {
+            .sm(display, none);
+        }
     }
 }
 
 .subscription {
-    padding: 140px 150px;
+    padding: 140px 0 150px;
+
+    .md(padding, 80px 0 100px);
+    .sm(padding, 60px 0 80px);
+    .xs(padding, 50px 0 70px);
 
     &-section {
         .col();
         .size(6);
+        .size-lg(10);
+        .size-sm(12);
 
         text-align: center;
 
         &__title {
+            .sm(font-size, 28px);
+            .xs(font-size, 23px);
+
             font-size: 30px;
             font-family: 'Poppins';
             color: #272727;
         }
 
         &__form {
+            .sm(margin-top, 30px);
+            .xs(flex-wrap, wrap);
+            .xs(margin-top, 20px);
+
             display: flex;
             justify-content: center;
             margin-top: 40px;
         }
 
         &__email {
+            .sm(padding, 8.5px 0 8.5px 27px);
+            .sm(font-size, 15px);
+
+            .xs(width, 100%);
+            .xs(border-radius, 0);
+            .xs(text-align, center);
+            .xs(padding, 8.5px 10px 8.5px);
+            
             font-size: 16px;
             font-family: 'Poppins';
             color: @light_black;
@@ -1320,6 +1713,13 @@ input, textarea, button {
         }
 
         &__btn {
+            .sm(padding, 10.5px 26px);
+            .sm(font-weight, 500);
+            .sm(font-size, 15px);
+
+            .xs(width, 100%);
+            .xs(border-radius, 0);
+            
             font-size: 16px;
             font-family: 'Poppins';
             font-weight: 600;
@@ -1334,6 +1734,8 @@ input, textarea, button {
             transition: all ease-in-out .2s;
 
             &:hover {
+                .xs(transform, none);
+
                 transform: scale(1.05);
             }
         }
@@ -1344,14 +1746,25 @@ input, textarea, button {
     background-color: #cccccc;
     padding: 130px 0 150px;
 
+    .md(padding, 80px 0 100px);
+    .sm(padding, 60px 0 80px);
+    .xs(padding, 50px 0);
+
     &-header {
         
         .col();
         .size(6);
+        .size-lg(8);
+        .size-md(10);
+        .size-sm(12);
 
         text-align: center;
 
         &__title {
+            .md(font-size, 45px);
+            .sm(font-size, 40px);
+            .xs(font-size, 35px);
+
             font-size: 50px;
             font-family: 'Libre Baskerville';
             font-weight: 700;
@@ -1359,6 +1772,8 @@ input, textarea, button {
         }
 
         &__text {
+            .xs(font-size, 15px);
+
             font-size: 18px;
             font-family: 'Poppins';
             color: @light_black;
@@ -1369,23 +1784,40 @@ input, textarea, button {
     &-section {
         .col();
         .size(8);
+        .size-lg(9);
+        .size-md(11);
+        .size-sm(12);
 
         text-align: center;
 
         &__container {
+            .xs(flex-wrap, wrap);
+
             display: flex;
             justify-content: space-between;
 
             &:first-child {
+                .md(margin-top, 45px);
+                
+                .xs(margin-top, 30px);
+
                 margin-top: 75px;
             }
 
             &:nth-child(2) {
+                .xs(margin-top, 0);
+
                 margin-top: 25px;
             }
         }
 
         input {
+            .sm(padding, 12.5px 20px);
+
+            .xs(width, 100%);
+            .xs(margin-top, 10px);
+            .xs(padding, 12.5px 15px);
+
             border: none;
             font-size: 16px;
             font-family: 'Poppins';
@@ -1397,11 +1829,17 @@ input, textarea, button {
             transition: all ease-in-out .4s;
 
             &:focus {
+                .sm(transform, scale(1.05));
+
                 transform: scale(1.1);
             }
         }
 
         &__textarea {
+            .xs(margin-top, 10px);
+            .xs(padding, 15px);
+            .xs(width, calc(100% - 30px));
+
             resize: none;
             border: none;
             font-size: 16px;
@@ -1416,11 +1854,19 @@ input, textarea, button {
             transition: all ease-in-out .4s;
 
             &:focus {
+                .sm(transform, scale(1.025));
+                .xs(transform, scale(1.05));
+
                 transform: scale(1.05);
             }
         }
 
         &__btn {
+            .sm(margin-top, 30px);
+            .sm(font-weight, 500);
+
+            .xs(border-radius, 0);
+
             font-size: 16px;
             font-family: 'Poppins';
             font-weight: 600;
@@ -1444,11 +1890,14 @@ input, textarea, button {
     background-color: #cccccc;
     padding: 0 0 125px;
 
+    .md(padding, 0);
+
     &-section {
         background-color: @dark_gray;
         display: flex;
         width: 100%;
         align-items: center;
+        flex-wrap: wrap;
         position: relative;
 
         &::before {
@@ -1475,6 +1924,14 @@ input, textarea, button {
     &-route {
         .col();
         .size(3);
+        .size-md(5);
+        .size-sm(6);
+        .size-xs(12);
+
+        .lg(padding, 55px 10px 55px 0);
+
+        .md(padding, 25px 0);
+        .md(text-align, center);
 
         padding: 60px 40px 50px 0;
 
@@ -1497,6 +1954,9 @@ input, textarea, button {
         }
 
         &__text {
+            .md(margin-top, 20px);
+            .xs(margin-top, 10px);
+
             font-size: 16px;
             font-family: 'Poppins';
             color: @white;
@@ -1505,6 +1965,9 @@ input, textarea, button {
         }
 
         &__images {
+            .md(margin-top, 33px);
+            .xs(margin-top, 15px);
+            
             margin-top: 48px;
 
             a {
@@ -1522,6 +1985,8 @@ input, textarea, button {
         }
 
         &:first-child {
+            // .xs(display, none);
+
             text-align: center;
         }
     }

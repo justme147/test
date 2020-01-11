@@ -58,8 +58,8 @@ gulp.task('grid', function() {
        },
        breakPoints: {
         lg: {
-            width: '1140px' /* -> @media (max-width: 1100px) */
-//            fields: '20px'
+            width: '1140px', /* -> @media (max-width: 1100px) */
+            fields: '15px'
         },
         md: {
             width: '960px'
